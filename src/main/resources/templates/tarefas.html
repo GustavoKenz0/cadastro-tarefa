@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Minhas Tarefas</title>
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    
+    <a th:href="@{/tarefa/nova}">Adicionar Nova Tarefa</a>
+    
+    <ul>
+        <li th:each="tarefa : ${tarefas}">
+            <span th:text="${tarefa.titulo}"></span> - 
+            <span th:text="${tarefa.descricao}"></span> - 
+            <span th:text="${tarefa.categoria.nome}"></span>
+            <a th:href="@{/tarefa/excluir/{id}(id=${tarefa.id})}">Excluir</a>
+        </li>
+    </ul>
+</body>
+</html>
